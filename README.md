@@ -16,7 +16,7 @@ touch pages/Blogs.js
 touch pages/Contact.js
 touch pages/NoPage.js
 ```
-3. Edit ```App.js``` and insert the following code
+3. Edit ```src/App.js``` and insert the following code
 ```
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
