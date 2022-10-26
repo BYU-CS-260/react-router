@@ -81,9 +81,25 @@ The ```<Outlet>``` renders the current route selected.  So when you select the `
 The "Layout route" is a shared component that inserts a navigation menu into all pages.
 * pages/Home.js
 ```
-  const Home = () => {
+const Home = () => {
   return <h1>Home</h1>;
 };
 
 export default Home;
+```
+* pages/Home.js
+```
+const Home = () => {
+  return <h1>Home</h1>;
+};
+
+export default Home;
+```
+* pages/Contact.js
+```
+const Contact = () => {
+  return <h1>Contact Me</h1>;
+};
+
+export default Contact;
 ```
