@@ -76,9 +76,9 @@ const Layout = () => {
 
 export default Layout;
 ```
-  * The <Outlet> renders the current route selected.  So when you select the ```Blogs``` Link, the ```blogs``` route will render the ```<Blogs />``` tag.
-  * <Link> is used like an ```<a>``` tag.  Anytime we link to an internal path, we will use <Link> instead of ```<a href="">```.
-  * The "layout route" is a shared component that inserts a navigation menu into all pages.
+The <Outlet> renders the current route selected.  So when you select the ```Blogs``` Link, the ```blogs``` route will render the ```<Blogs />``` tag.
+```<Link>``` is used like an ```<a>``` tag.  Anytime we link to an internal path, we will use ```<Link>``` instead of ```<a href="">```.
+The "Layout route" is a shared component that inserts a navigation menu into all pages.
 * pages/Home.js
 ```
   const Home = () => {
