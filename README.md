@@ -103,6 +103,16 @@ const Contact = () => {
 
 export default Contact;
 ```
+* pages/NoPage.js
+```
+const NoPage = () => {
+  return <h1>404</h1>;
+};
+
+export default NoPage;
+```
+This route will be called if a URL is entered that does not match any of the routes.
+
 5. Run your code and experiment with creating different routes
 ```
 npm start
