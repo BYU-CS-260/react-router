@@ -87,13 +87,13 @@ const Home = () => {
 
 export default Home;
 ```
-* pages/Home.js
+* pages/Blogs.js
 ```
-const Home = () => {
-  return <h1>Home</h1>;
+const Blogs = () => {
+  return <h1>Blog Articles</h1>;
 };
 
-export default Home;
+export default Blogs;
 ```
 * pages/Contact.js
 ```
