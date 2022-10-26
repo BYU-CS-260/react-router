@@ -7,8 +7,9 @@ npx create-react-app multi
 cd multi
 npm install react-router-dom
 ```
-2. Now create a ```pages``` folder with files for each of the views
+2. Now create a ```pages``` folder inside of the ```src``` folder with files for each of the views
 ```
+cd src
 mkdir pages
 touch pages/Layout.js
 touch pages/Home.js
