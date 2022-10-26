@@ -78,7 +78,7 @@ export default Layout;
 ```
 The ```<Outlet>``` renders the current route selected.  So when you select the ```Blogs``` Link, the ```blogs``` route will render the ```<Blogs />``` tag.
 ```<Link>``` is used like an ```<a>``` tag.  Anytime we link to an internal path, we will use ```<Link>``` instead of ```<a href="">```.
-The "Layout route" is a shared component that inserts a navigation menu into all pages.
+The "Layout route" is a shared component that inserts a navigation menu into all pages.  Notice that all of the other routes are inside of the opening and closing ```Layout``` tags.
 * pages/Home.js
 ```
 const Home = () => {
@@ -102,4 +102,8 @@ const Contact = () => {
 };
 
 export default Contact;
+```
+5. Run your code and experiment with creating different routes
+```
+npm start
 ```
