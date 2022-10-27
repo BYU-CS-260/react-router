@@ -118,3 +118,13 @@ This route will be called if a URL is entered that does not match any of the rou
 ```
 npm start
 ```
+
+6. The following information only applies once you've run  `npm build`:
+
+By default, the router will route pages from the root of your server. If your reactCLI project is in a subdirectory, you might have noticed that clicking on a router link (like the link to the contact page) sends you to "yourURL/contact" instead of "yourURL/yourProjectDirectory/contact"
+ 
+To remedy this, you can use the basename property to specify which directory you would like to route your links from.
+ 
+Try editing your router to say `<BrowserRouter basename="/yourProjectDirectory">`
+ 
+Now, navigating to the contact page with the router will correctly send you to "yourURL/yourProjectDirectory/contact"
