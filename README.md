@@ -140,3 +140,12 @@ Now deploy your application with the command
 npm run build
 ```
 This should create a "build" directory with all of the files needed to run your application.  Notice that there is an "index.html" file in this directory that is a compressed version of your application.  If you have created my-app in your "public_html/react" directory, then you can access your React CLI application by going to https://mydomain/react/my-app/build/
+
+7. Fix the Routes
+By default, the router will route pages from the root of your server. If your reactCLI project is in a subdirectory, you might have noticed that clicking on a router link (like the link to the contact page) sends you to "yourURL/contact" instead of "yourURL/yourProjectDirectory/contact"
+ 
+To remedy this, you can use the basename property to specify which directory you would like to route your links from.
+ 
+Try editing your router to say ```<BrowserRouter basename="/yourProjectDirectory">```
+ 
+Now, navigating to the contact page with the router will correctly send you to "yourURL/yourProjectDirectory/contact"
