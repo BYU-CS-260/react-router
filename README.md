@@ -149,3 +149,14 @@ To remedy this, you can use the basename property to specify which directory you
 Try editing your router (in src/App.js) to say ```<BrowserRouter basename="/react/multi/build">```
  
 Now, navigating to the contact page with the router will correctly send you to "https://mydomain/react/multi/build/contact"
+
+8. Refreshing
+
+There will still be a problem if you try to refresh your "contact" page.  If you want to allow users to refresh the route "contact", you will need to create a folder "build/contact" with the following redirect in an "index.html" file in the folder.
+```
+<html>
+<head>
+<meta http-equiv="refresh" content="0; URL=/react/multi/build/" />    
+</head>
+</html>
+```
