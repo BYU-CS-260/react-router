@@ -154,6 +154,7 @@ Now, navigating to the contact page with the router will correctly send you to "
 
 There will still be a problem if you try to refresh your "contact" page.  If you want to allow users to refresh the route "contact", you will need to create a folder "build/contact" with the following redirect in an "index.html" file in the folder.
 ```
+<!doctype html>
 <html>
 <head>
 <meta http-equiv="refresh" content="0; URL=/react/multi/build/" />    
