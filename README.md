@@ -119,7 +119,7 @@ This route will be called if a URL is entered that does not match any of the rou
 npm start
 ```
 
-6. The following information only applies once you've run  `npm build`:
+6. The following information only applies once you've run  `npm run build`:
 
 By default, the router will route pages from the root of your server. If your reactCLI project is in a subdirectory, you might have noticed that clicking on a router link (like the link to the contact page) sends you to "yourURL/contact" instead of "yourURL/yourProjectDirectory/contact"
  
