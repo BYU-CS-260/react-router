@@ -146,6 +146,6 @@ By default, the router will route pages from the root of your server. If your re
  
 To remedy this, you can use the basename property to specify which directory you would like to route your links from.
  
-Try editing your router to say ```<BrowserRouter basename="/react/multi/build">```
+Try editing your router (in src/App.js) to say ```<BrowserRouter basename="/react/multi/build">```
  
 Now, navigating to the contact page with the router will correctly send you to "https://mydomain/react/multi/build/contact"
