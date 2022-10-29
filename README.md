@@ -33,15 +33,12 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<Navigate to="/react/multi/build" />}  />
+          <Route path="*" element={<Navigate to="/" />}  />
         </Route>
       </Routes>
     </BrowserRouter>
   );
 }
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
 ```
 * [```BrowserRouter```](https://reactrouter.com/en/main/router-components/browser-router) stores the current location in the browser's address bar.
 * [```Routes```](https://reactrouter.com/en/main/components/routes) looks through all its child routes to find the best match and renders that branch.
