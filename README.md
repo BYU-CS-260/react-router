@@ -137,7 +137,7 @@ Try editing your router (in src/App.js) to say ```<BrowserRouter basename="/reac
  
 Now, navigating to the contact page with the router will correctly send you to "https://mydomain/react/multi/build/contact"
 
-If you want to run your development server with ```npm start```, you will have to put this route into the URL ```http://ec2-54-213-251-10.us-west-2.compute.amazonaws.com:8080/react/multi/build```
+If you want to run your development server with ```npm start```, you will have to put this route into the URL ```http://mydomain:8080/react/multi/build```
 
 8. CSS
 You may want to add bootstrap CSS to your navigation bar. First add the bootstrap includes after the ```<title>``` in ```public/index.html```
