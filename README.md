@@ -15,17 +15,15 @@ touch pages/Layout.js
 touch pages/Home.js
 touch pages/Blogs.js
 touch pages/Contact.js
-touch pages/NoPage.js
 ```
 3. Edit ```src/App.js``` and insert the following code
 ```
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
-import NoPage from "./pages/NoPage";
 
 export default function App() {
   return (
@@ -35,7 +33,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} />
+          <Route path="*" element={<Navigate to="/react/multi/build" />}  />
         </Route>
       </Routes>
     </BrowserRouter>
@@ -104,15 +102,7 @@ const Contact = () => {
 
 export default Contact;
 ```
-* pages/NoPage.js
-```
-const NoPage = () => {
-  return <h1>404</h1>;
-};
-
-export default NoPage;
-```
-This route will be called if a URL is entered that does not match any of the routes.
+If none of the routes match, then the ```<Navigate>``` tag will redirect to the home page.
 
 5. Run your code and experiment with creating different routes
 ```
@@ -150,7 +140,40 @@ Try editing your router (in src/App.js) to say ```<BrowserRouter basename="/reac
  
 Now, navigating to the contact page with the router will correctly send you to "https://mydomain/react/multi/build/contact"
 
-8. Refreshing
+8. CSS
+You may want to add bootstrap CSS to your navigation bar. First add the bootstrap includes after the ```<title>``` in ```public/index.html```
+```
+    <title>React App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    
+```
+
+Next, add the bootstrap navbar tags to the ```src/pages/Layout.js```
+```
+  return (
+    <>
+    <nav class="navbar navbar-expand-sm bg-light">
+      <div class="container-fluid">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <Link class="nav-link" to="/">Home</Link>
+          </li>
+          <li class="nav-item">
+            <Link class="nav-link" to="/blogs">Blogs</Link>
+          </li>
+          <li class="nav-item">
+            <Link class="nav-link" to="/contact">Contact</Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <Outlet />
+    </>
+```
+9. Refreshing
 
 There will still be a problem if you try to refresh your "contact" page.  If you want to allow users to refresh the route "contact", you will need to create a folder "build/contact" with the following redirect in an "index.html" file in the folder.
 ```
