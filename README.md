@@ -206,8 +206,8 @@ Explained:
 
 
 Examples:
-# A browser requests /math-website. Caddy redirects the url to /math-website/. It then handles the url, setting the {path} variable /. It then trys to find the file to by looking in the /build folder for index.html which it then returns
+* A browser requests /math-website. Caddy redirects the url to /math-website/. It then handles the url, setting the {path} variable /. It then trys to find the file to by looking in the /build folder for index.html which it then returns
 
-# A browser requests /math-website/about. Caddy handles the url, changing the {path} variable to /about. It then looks in the /build folder for /about and /about/index.html. Since neither exists, it returns index.html from the build folder, but the browser router is handed /about as it's path
+* A browser requests /math-website/about. Caddy handles the url, changing the {path} variable to /about. It then looks in the /build folder for /about and /about/index.html. Since neither exists, it returns index.html from the build folder, but the browser router is handed /about as it's path
 
-# A broswer requests /math-website/favicon.ico (the icon to display in the tab). Caddy handles the url, changing the {path} variable to /favicon.ico. It then looks in the /build folder for /favicon.ico. The file exists, so it returns /build/favicon.ico
+* A broswer requests /math-website/favicon.ico (the icon to display in the tab). Caddy handles the url, changing the {path} variable to /favicon.ico. It then looks in the /build folder for /favicon.ico. The file exists, so it returns /build/favicon.ico
