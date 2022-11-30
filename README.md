@@ -174,12 +174,40 @@ Next, add the bootstrap navbar tags to the ```src/pages/Layout.js```
 ```
 9. Refreshing
 
-There will still be a problem if you try to refresh your "contact" page.  If you want to allow users to refresh the route "contact", you will need to create a folder "build/contact" with the following redirect in an "index.html" file in the folder.
+There will still be a problem if you try to refresh your "contact" page.  If you want to allow users to refresh the route "contact", you will need to Modify your Caddy config file.
+
+You will need to make sure your BrowserRouter has it's basename attribute set. For this example, it would be "/math-website/" or "/cookbook/"
+You also need to go to the project's package.json and have `"homepage": "."`
+
+
+Add these directives to your Caddyfile and restart caddy with `sudo systemctl restart caddy`
+
 ```
-<!doctype html>
-<html>
-<head>
-<meta http-equiv="refresh" content="0; URL=/react/multi/build/" />    
-</head>
-</html>
+redir /math-website /math-website/
+handle_path /math-website/* {
+        root * /usr/share/caddy/math-website/build
+        try_files /{path} /index.html
+}
+
+redir /cookbook /cookbook/
+handle_path /cookbook/* {
+        root * /usr/share/caddy/cookbook/front-end/build
+        try_files /{path} /index.html
+}
 ```
+Explained:
+1. ```redir /math-website /math-website/``` - redirects requests for myDomain.com/math-website to myDomain.com/math-website/ (helpful for the handle_path)
+
+2. ```handle_path /math-website/* {}``` - runs the directives for any path starting with /math-website/. This is similar to `handle`, but it will change the variable `{path}` from /math-website/* to /* (meaning it strips /math-website/ from the path)
+
+3. ```root * /usr/share/caddy/math-website/build``` - makes the root directory be /build
+
+4. ```try_files /{path} /index.html``` - attempts to return the file at /{path} (because of `handle_path`, this will be whatever is after /math-website/`. If the file doesn't exist, instead it returns /index.html. For built react projects, index.html will have the browser router. Caddy is smart enough that though it returns the index.html file, it will hand that file /{path} as the current URL.
+
+
+Examples:
+# A browser requests /math-website. Caddy redirects the url to /math-website/. It then handles the url, setting the {path} variable /. It then trys to find the file to by looking in the /build folder for index.html which it then returns
+
+# A browser requests /math-website/about. Caddy handles the url, changing the {path} variable to /about. It then looks in the /build folder for /about and /about/index.html. Since neither exists, it returns index.html from the build folder, but the browser router is handed /about as it's path
+
+# A broswer requests /math-website/favicon.ico (the icon to display in the tab). Caddy handles the url, changing the {path} variable to /favicon.ico. It then looks in the /build folder for /favicon.ico. The file exists, so it returns /build/favicon.ico
